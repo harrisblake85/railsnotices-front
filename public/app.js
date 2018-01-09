@@ -3,7 +3,7 @@ const app = angular.module('noticeboard',[])
 app.controller("MainController",["$http",function ($http) {
   this.hello="ello";
   this.notices=[];
-  this.url = "https://noticerails-api.herokuapp.com/"
+  this.url = "https://noticerails-api.herokuapp.com/notices"
   $http({
     method:"GET",
     url:this.url
