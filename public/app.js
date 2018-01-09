@@ -3,9 +3,10 @@ const app = angular.module('noticeboard',[])
 app.controller("MainController",["$http",function ($http) {
   this.hello="ello";
   this.notices=[];
+  this.url = "https://noticerails-api.herokuapp.com/"
   $http({
     method:"GET",
-    url:"http://localhost:3000/notices"
+    url:this.url
   }).then((response) => {
     console.table(response.data);
     this.notices = response.data
@@ -17,7 +18,7 @@ app.controller("MainController",["$http",function ($http) {
    console.log('Form data: ', this.formdata);
    $http({
      method: 'POST',
-     url: 'http://localhost:3000/notices',
+     url: this.url,
      data: this.formdata
    }).then(response => {
      console.log('response: ', response);
